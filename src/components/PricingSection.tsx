@@ -96,7 +96,7 @@ const PricingSection = () => {
                 <div className="flex items-baseline justify-center gap-1">
                   <span className="text-2xl font-bold text-muted-foreground">R$</span>
                   <span className="text-5xl font-heading font-bold gradient-text">
-                    {plan.price.toString().replace(".", ",")}
+                    {plan.price.toFixed(2).replace(".", ",")}
                   </span>
                 </div>
                 <p className="text-muted-foreground mt-1">{plan.period}</p>
