@@ -43,7 +43,7 @@ const HeroSection = () => {
 
             <Button
               onClick={scrollToPlans}
-              className="gradient-button text-lg px-8 py-6 rounded-full"
+              className="cta-button text-lg md:text-xl px-10 py-7 rounded-full"
               size="lg"
             >
               ADQUIRA O SEU AGORA
@@ -51,7 +51,7 @@ const HeroSection = () => {
           </div>
 
           {/* Right content - Poster grid */}
-          <div className="hidden lg:grid grid-cols-3 gap-3 max-w-md ml-auto">
+          <div className="hidden lg:grid grid-cols-3 gap-4 max-w-lg ml-auto">
             {[
               "https://i0.wp.com/www.acessocineflix.vip/wp-content/uploads/2026/01/Jurassic-World-Rebirth.webp?fit=335%2C496&ssl=1",
               "https://i0.wp.com/www.acessocineflix.vip/wp-content/uploads/2026/01/Libertadores-1.webp?fit=335%2C496&ssl=1",
@@ -65,13 +65,13 @@ const HeroSection = () => {
             ].map((src, i) => (
               <div
                 key={i}
-                className="aspect-[2/3] rounded-lg overflow-hidden card-streaming"
+                className="aspect-[2/3] rounded-xl overflow-hidden card-streaming group cursor-pointer animate-fade-in"
                 style={{ animationDelay: `${i * 0.1}s` }}
               >
                 <img
                   src={src}
                   alt={`Conteúdo ${i + 1}`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>

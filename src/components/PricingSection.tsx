@@ -108,11 +108,11 @@ const PricingSection = () => {
 
               <Button
                 onClick={() => handleSelectPlan(plan)}
-                className={`w-full gradient-button rounded-full py-6 mb-6 ${
-                  plan.recommended ? "animate-pulse-glow" : ""
+                className={`w-full cta-button rounded-full py-6 mb-6 text-base md:text-lg ${
+                  plan.recommended ? "" : ""
                 }`}
               >
-                Comprar agora
+                COMPRAR AGORA
               </Button>
 
               <div className="space-y-3">

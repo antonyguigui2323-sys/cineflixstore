@@ -140,7 +140,7 @@
 
   .carousel-track {
     display: flex;
-    animation: scroll 30s linear infinite;
+    animation: scroll 15s linear infinite;
   }
 
   .carousel-track:hover {
@@ -153,6 +153,29 @@
     }
     100% {
       transform: translateX(-50%);
+    }
+  }
+
+  .cta-button {
+    @apply font-extrabold uppercase tracking-wide;
+    background: linear-gradient(135deg, hsl(322, 80%, 55%), hsl(280, 70%, 50%));
+    box-shadow: 0 0 25px hsl(322, 80%, 55% / 0.5), 0 0 50px hsl(322, 80%, 55% / 0.3);
+    animation: buttonPulse 2s ease-in-out infinite;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background: linear-gradient(135deg, hsl(322, 90%, 60%), hsl(280, 80%, 55%));
+    box-shadow: 0 0 40px hsl(322, 80%, 55% / 0.7), 0 0 80px hsl(322, 80%, 55% / 0.4);
+    transform: translateY(-3px) scale(1.02);
+  }
+
+  @keyframes buttonPulse {
+    0%, 100% {
+      box-shadow: 0 0 25px hsl(322, 80%, 55% / 0.5), 0 0 50px hsl(322, 80%, 55% / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 35px hsl(322, 80%, 55% / 0.7), 0 0 70px hsl(322, 80%, 55% / 0.5);
     }
   }
 

@@ -40,7 +40,7 @@ const GuaranteeSection = () => {
 
             <Button
               onClick={scrollToPlans}
-              className="gradient-button px-8 py-6 rounded-full text-lg"
+              className="cta-button px-10 py-7 rounded-full text-lg md:text-xl"
               size="lg"
             >
               ADQUIRA O SEU AGORA
