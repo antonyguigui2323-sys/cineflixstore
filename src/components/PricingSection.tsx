@@ -32,7 +32,7 @@ const plans: Plan[] = [
     screens: 4,
     recommended: true,
     icon: Star,
-    benefitsCount: 9, // all benefits
+    benefitsCount: 9,
   },
   {
     id: "pro",
@@ -41,7 +41,7 @@ const plans: Plan[] = [
     period: "semestral",
     screens: 2,
     icon: Zap,
-    benefitsCount: 3,
+    benefitsCount: 7,
   },
 ];
 
