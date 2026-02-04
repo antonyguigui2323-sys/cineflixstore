@@ -17,7 +17,7 @@ const plans: Plan[] = [
   {
     id: "start",
     name: "Plano START",
-    price: 20,
+    price: 19.90,
     period: "mensal",
     screens: 2,
     icon: Zap,
@@ -25,7 +25,7 @@ const plans: Plan[] = [
   {
     id: "prime",
     name: "Plano PRIME",
-    price: 97,
+    price: 97.90,
     period: "anual",
     screens: 4,
     recommended: true,
@@ -34,7 +34,7 @@ const plans: Plan[] = [
   {
     id: "pro",
     name: "Plano PRO",
-    price: 69.9,
+    price: 59.70,
     period: "semestral",
     screens: 2,
     icon: Zap,
