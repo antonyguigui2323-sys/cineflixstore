@@ -1,4 +1,4 @@
-import { Check, Star, Zap } from "lucide-react";
+import { Check, Star, Zap, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import PaymentModal from "./PaymentModal";
@@ -11,6 +11,7 @@ interface Plan {
   screens: number;
   recommended?: boolean;
   icon: typeof Star;
+  benefitsCount: number;
 }
 
 const plans: Plan[] = [
@@ -21,6 +22,7 @@ const plans: Plan[] = [
     period: "mensal",
     screens: 2,
     icon: Zap,
+    benefitsCount: 4,
   },
   {
     id: "prime",
@@ -30,6 +32,7 @@ const plans: Plan[] = [
     screens: 4,
     recommended: true,
     icon: Star,
+    benefitsCount: 9, // all benefits
   },
   {
     id: "pro",
@@ -38,6 +41,7 @@ const plans: Plan[] = [
     period: "semestral",
     screens: 2,
     icon: Zap,
+    benefitsCount: 3,
   },
 ];
 
@@ -126,12 +130,19 @@ const PricingSection = () => {
                     <Check className="w-4 h-4 text-primary flex-shrink-0" />
                     <span>Use {plan.screens} telas simultaneamente</span>
                   </li>
-                  {benefits.map((benefit, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span>{benefit}</span>
-                    </li>
-                  ))}
+                  {benefits.map((benefit, i) => {
+                    const isIncluded = i < plan.benefitsCount;
+                    return (
+                      <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                        {isIncluded ? (
+                          <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                        ) : (
+                          <X className="w-4 h-4 text-destructive flex-shrink-0" />
+                        )}
+                        <span className={!isIncluded ? "line-through opacity-50" : ""}>{benefit}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             </div>
