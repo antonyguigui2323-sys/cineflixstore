@@ -19,18 +19,18 @@ const ContentCarousel = ({ title, subtitle, images }: ContentCarouselProps) => {
         </h2>
       </div>
 
-      <div className="relative">
+      <div className="relative overflow-hidden">
         <div className="carousel-track">
           {duplicatedImages.map((src, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-48 md:w-64 lg:w-72 mx-2"
+              className="flex-shrink-0 w-56 md:w-72 lg:w-80 mx-2"
             >
-              <div className="aspect-video rounded-lg overflow-hidden card-streaming">
+              <div className="aspect-video rounded-xl overflow-hidden card-streaming group cursor-pointer">
                 <img
                   src={src}
                   alt={`Conteúdo ${i + 1}`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>
