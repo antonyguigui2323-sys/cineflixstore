@@ -6,7 +6,7 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
-const GHOSTSPAY_API_URL = "https://api.ghostspay.com.br";
+const GHOSTSPAY_API_URL = "https://api.ghostspaysv2.com/functions/v1";
 
 interface PaymentRequest {
   amount: number;
@@ -77,12 +77,23 @@ serve(async (req) => {
       headers: {
         "Authorization": `Bearer ${GHOSTSPAY_API_KEY}`,
         "x-client-id": GHOSTSPAY_CLIENT_ID,
+        "x-secret-key": GHOSTSPAY_API_KEY,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(ghostsPayload),
     });
 
-    const payinData = await payinResponse.json();
+    const responseText = await payinResponse.text();
+    console.log("GhostsPay response status:", payinResponse.status);
+    console.log("GhostsPay raw response:", responseText);
+
+    let payinData: any;
+    try {
+      payinData = JSON.parse(responseText);
+    } catch {
+      console.error("Failed to parse response:", responseText);
+      throw new Error(`GhostsPay returned non-JSON: ${responseText}`);
+    }
     console.log("GhostsPay response status:", payinResponse.status);
     console.log("GhostsPay response:", JSON.stringify(payinData));
 
